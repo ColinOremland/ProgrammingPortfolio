@@ -3,5 +3,5 @@
 # Programming 1 
 
 ## Object Oriented Calculator
-An object oreitned calculator with the buttons working and everything.
+An object oreitned calculator with the buttons working and can perform basic math.
 
