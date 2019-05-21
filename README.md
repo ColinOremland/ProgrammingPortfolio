@@ -23,4 +23,10 @@ A program in C++ that turns any english text into pig latin oolcay ightray?
 
 ![The APP](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/Piglatin/pigstuff%205_21_2019%201_42_52%20PM.png?raw=true "The App")
 
+## Guessing game
+you guess a number and the computer tells you if youre correct.
+
+[SourceCode](https://github.com/ColinOremland/ProgrammingPortfolio2019/tree/master/Guessinggame "Source Code")
+
+
 
