@@ -34,5 +34,5 @@ you guess a number and the computer tells you if youre correct.
 A fun little game in proccessing that is just a rip off of the classic arcade game galaga.
 [SourceCode](https://github.com/ColinOremland/ProgrammingPortfolio2019/tree/master/SpaceShipGame "Source Code")
 
-![The App}(https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/SpaceShipGame/Screen%20Shot%202019-05-21%20at%202.09.23%20PM.png?raw=true "The App")
+![The App](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/SpaceShipGame/Screen%20Shot%202019-05-21%20at%202.09.23%20PM.png?raw=true "The App")
 
