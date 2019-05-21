@@ -28,5 +28,5 @@ you guess a number and the computer tells you if youre correct.
 
 [SourceCode](https://github.com/ColinOremland/ProgrammingPortfolio2019/tree/master/Guessinggame "Source Code")
 
-![The App](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/Guessinggame/Select%20numberguessing%205_21_2019%201_53_41%20PM.pngraw=true "The App")
+![The App](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/Guessinggame/Select%20numberguessing%205_21_2019%201_53_41%20PM.png?raw=true "The App")
 
