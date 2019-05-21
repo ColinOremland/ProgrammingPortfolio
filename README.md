@@ -16,4 +16,11 @@ A Program in C++ that counts down from 99 in whatever kind of drink you'd like
 
 ![The App](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/99Bottles/99Bottles%205_21_2019%201_31_47%20PM.png?raw=true "The App")
 
+## Trasnlator that turns English into Pig Latin
+A program in C++ that turns any english text into pig latin oolcay ightray?
+
+[SourceCode](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/Piglatin/pigLatin.cpp "Source Code")
+
+![The APP](https://github.com/ColinOremland/ProgrammingPortfolio2019/blob/master/Piglatin/pigstuff%205_21_2019%201_42_52%20PM.png?raw=true "The App")
+
 
