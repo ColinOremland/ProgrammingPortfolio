@@ -1,0 +1,219 @@
+vex::brain Brain;
+vex::motor DriveFL = vex::motor(vex::PORT1,vex::gearSetting::ratio18_1, true);
+vex::motor DriveFR = vex::motor(vex::PORT3,vex::gearSetting::ratio18_1, true);
+vex::motor DriveBL = vex::motor(vex::PORT4,vex::gearSetting::ratio18_1, true);
+vex::motor DriveBR = vex::motor(vex::PORT6,vex::gearSetting::ratio18_1, true);
+vex::motor LiftR = vex::motor(vex::PORT7,vex::gearSetting::ratio36_1, true);
+vex::motor LiftL = vex::motor(vex::PORT8,vex::gearSetting::ratio36_1);
+vex::motor ClawR = vex::motor(vex::PORT9,vex::gearSetting::ratio36_1);
+vex::motor ClawL = vex::motor(vex::PORT10,vex::gearSetting::ratio36_1);
+vex::controller Controller = vex::controller();
+
+
+
+#include "robot-config.h"
+#include <cstdlib>
+
+
+vex::competition    Competition;
+
+
+
+void moveLeft(float distance){
+    DriveFL.resetRotation();
+    DriveFR.resetRotation();
+    DriveBL.resetRotation();
+    DriveBR.resetRotation();
+
+    float degrees = distance * 360 /(2*1.625*3.141592653); // distance was in inches
+    DriveFL.spin(vex::directionType::fwd,50,vex::velocityUnits::pct);
+    DriveBL.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveFR.spin(vex::directionType::fwd,50,vex::velocityUnits::pct);
+    DriveBR.rotateTo(degrees,vex::rotationUnits::deg,-50,vex::velocityUnits::pct);
+
+    DriveFL.stop();
+    DriveBL.stop();
+    DriveFR.stop();
+    DriveBR.stop();
+}
+
+void moveForward(float distance){
+    DriveFL.resetRotation();
+    DriveFR.resetRotation();
+    DriveBL.resetRotation();
+    DriveBR.resetRotation();
+
+    float degrees = distance * 1.4142135 * 360 /(2*1.625*3.141592653); // distance was in inches
+    DriveFL.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveBL.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveFR.spin(vex::directionType::fwd,50,vex::velocityUnits::pct);
+    DriveBR.rotateTo(degrees,vex::rotationUnits::deg,50,vex::velocityUnits::pct);
+
+    DriveFL.stop();
+    DriveBL.stop();
+    DriveFR.stop();
+    DriveBR.stop();
+}
+void moveRight(double distance){
+    DriveFL.resetRotation();
+    DriveFR.resetRotation();
+    DriveBL.resetRotation();
+    DriveBR.resetRotation();
+
+    float degrees = distance * 1.4142135 * 360 /(2*1.625*3.141592653); // distance was in inches
+    DriveFL.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveBL.spin(vex::directionType::fwd,50,vex::velocityUnits::pct);
+    DriveFR.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveBR.rotateTo(degrees,vex::rotationUnits::deg,50,vex::velocityUnits::pct);
+
+    DriveFL.stop();
+    DriveBL.stop();
+    DriveFR.stop();
+    DriveBR.stop();
+}
+void TurnRight(float degreesTurn){
+    DriveFL.resetRotation();
+    DriveFR.resetRotation();
+    DriveBL.resetRotation();
+    DriveBR.resetRotation();
+
+    float distance = 8.25*2*3.141592653*degreesTurn/360;
+    float degrees = distance * 360 /(2*1.625*3.141592653); // distance was in inches
+    DriveFL.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveBL.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveFR.spin(vex::directionType::fwd,-50,vex::velocityUnits::pct);
+    DriveBR.rotateTo(degrees,vex::rotationUnits::deg,-50,vex::velocityUnits::pct);
+
+    DriveFL.stop();
+    DriveBL.stop();
+    DriveFR.stop();
+    DriveBR.stop();
+}
+void TurnLeft(float degrees){
+    TurnRight(-degrees);
+}
+
+
+
+void LiftUP(double degrees){
+    LiftR.resetRotation();
+    LiftL.resetRotation();
+
+    LiftR.spin(vex::directionType::fwd,100,vex::velocityUnits::pct);
+    LiftL.rotateTo(degrees,vex::rotationUnits::deg,100,vex::velocityUnits::pct);
+
+    LiftR.stop();
+    LiftL.stop();    
+}
+void LiftDown(double degrees){
+    LiftR.resetRotation();
+    LiftL.resetRotation();
+
+    LiftR.spin(vex::directionType::fwd,-100,vex::velocityUnits::pct);
+    //LiftL.spin(vex::directionType::fwd,-100,vex::velocityUnits::pct);;
+    LiftL.rotateTo(-degrees,vex::rotationUnits::deg,100,vex::velocityUnits::pct);
+
+    LiftR.stop();
+    LiftL.stop();    
+}
+
+
+
+
+
+void pre_auton( void ) {
+    DriveFL.resetRotation();
+    DriveFR.resetRotation();
+    DriveBL.resetRotation();
+    DriveBR.resetRotation();
+    LiftR.resetRotation();
+    LiftL.resetRotation();
+            
+}
+
+
+
+void autonomous( void ) {
+    /*
+  //dummy claw code here
+  LiftUP(400);
+  moveRight(1);
+  moveForward(20);
+  LiftDown(200);
+  //dummy claw code here
+  LiftDown(200);
+  //dummy claw code here
+  LiftUP(400);
+  TurnRight(45);
+  */
+    
+ moveForward(40);
+ moveForward(-20);
+    
+ 
+    
+   
+    
+    
+}
+
+
+
+void usercontrol( void ) {
+  while (1) {
+      if(Controller.ButtonR1.pressing()){ 
+          LiftR.spin(vex::directionType::fwd,100,vex::velocityUnits::pct);
+          LiftL.spin(vex::directionType::fwd,100,vex::velocityUnits::pct);
+      }else if(Controller.ButtonR2.pressing()){
+          LiftR.spin(vex::directionType::fwd,-100,vex::velocityUnits::pct);
+          LiftL.spin(vex::directionType::fwd,-100,vex::velocityUnits::pct);
+      }else{
+          LiftL.stop(vex::brakeType::brake);
+          LiftR.stop(vex::brakeType::brake);
+      }
+      if(abs(Controller.Axis4.value()) <= 5 && abs(Controller.Axis1.value()) <= 5 && abs(Controller.Axis2.value()) <= 5){
+          DriveFR.stop(vex::brakeType::brake);
+          DriveFL.stop(vex::brakeType::brake);
+          DriveBR.stop(vex::brakeType::brake);
+          DriveBL.stop(vex::brakeType::brake);
+    }else{
+          DriveFR.spin(vex::directionType::fwd,-Controller.Axis4.value() + Controller.Axis2.value() - Controller.Axis1.value(),vex::velocityUnits::pct);
+          DriveFL.spin(vex::directionType::fwd,-Controller.Axis4.value() - Controller.Axis1.value() - Controller.Axis2.value(),vex::velocityUnits::pct);
+          DriveBR.spin(vex::directionType::fwd,- Controller.Axis4.value() + Controller.Axis2.value() + Controller.Axis1.value(),vex::velocityUnits::pct);
+          DriveBL.spin(vex::directionType::fwd,- Controller.Axis4.value() + Controller.Axis1.value() - Controller.Axis2.value(),vex::velocityUnits::pct);
+    }
+      if(Controller.ButtonL1.pressing()){
+          ClawR.spin(vex::directionType::rev,-100,vex::velocityUnits::pct);
+          ClawL.spin(vex::directionType::rev,100,vex::velocityUnits::pct);
+      }else if(Controller.ButtonL2.pressing()){
+          ClawR.spin(vex::directionType::rev,100,vex::velocityUnits::pct);
+          ClawL.spin(vex::directionType::rev,-100,vex::velocityUnits::pct);
+      }else{
+          ClawL.stop(vex::brakeType::brake);
+          ClawR.stop(vex::brakeType::brake);
+      }
+     
+      
+    vex::task::sleep(20); //Sleep the task for a short amount of time to prevent wasted resources. 
+  }
+}
+
+
+int main() {
+    pre_auton();
+    Competition.autonomous( autonomous );
+    Competition.drivercontrol( usercontrol );                      
+    while(1) {
+      vex::task::sleep(100);//Sleep the task for a short amount of time to prevent wasted resources.
+    }      
+}
+
+
+int main() {
+    pre_auton();
+    Competition.autonomous( autonomous );
+    Competition.drivercontrol( usercontrol );                      
+    while(1) {
+      vex::task::sleep(100);//Sleep the task for a short amount of time to prevent wasted resources.
+    }      
+}
