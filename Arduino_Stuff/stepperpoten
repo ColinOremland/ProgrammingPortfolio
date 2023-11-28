@@ -1,0 +1,29 @@
+#include <Stepper.h>
+
+const int stepsPerRevolution = 200;  
+Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+String pot = "pot: ";
+String space = "   ";
+String mot = "motor: ";
+
+
+int stepCount = 0;  
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorReading = analogRead(A0);
+  int potenSpot = sensorReading / 10.23;
+  int motorSpeed = map(sensorReading, 0, 1023, 10, 100);
+
+  if (potenSpot >= 51) {
+    myStepper.setSpeed(motorSpeed);
+    myStepper.step(10);
+  }
+  else if(potenSpot <= 49){
+    myStepper.setSpeed(motorSpeed);
+    myStepper.step(-10);
+  }
+  Serial.println(pot + potenSpot + space + mot + motorSpeed);
+}
